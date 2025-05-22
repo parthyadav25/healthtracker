@@ -18,17 +18,18 @@ public class MetricController {
         this.metricRepository = metricRepository;
     }
 
+    //ADD RECORD
     @PostMapping
     public Metric createMetric(@RequestBody Metric metric) {
         return metricRepository.save(metric);
     }
-
+    //RETRIEVE RECORD
     @GetMapping
     public List<Metric> getAllMetrics() {
         return metricRepository.findAll();
     }
 
-    // UPDATE
+    // UPDATE RECORD
     @PutMapping("/{id}")
     public Metric updateMetric(@PathVariable Long id, @RequestBody Metric updatedMetric) {
 
@@ -46,7 +47,7 @@ public class MetricController {
 
     }
 
-    // DELETE
+    // DELETE RECORD
     @DeleteMapping("/{id}")
     public String deleteMetric(@PathVariable Long id) {
         metricRepository.deleteById(id);
